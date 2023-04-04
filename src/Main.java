@@ -37,24 +37,39 @@ class MyArray {
         }
     }
 
-    void add(int index, int element) {
+
+    void addStart(int element) {
         regeneration();
 
         int[] newArr = new int[this.size];
+        newArr[0] = element;
 
-        for (int i = 0, j = 0; i < this.index; j++) {
-            if (j == index) {
-                newArr[j] = element;
-            }
-            else {
-                newArr[j] = this.arr[i];
-                i++;
+        for (int i = 0; i < this.index; i++) {
+                newArr[i+1] = this.arr[i];
             }
 
-        }
-            this.index++;
-            this.arr = newArr;
+        this.index++;
+        this.arr = newArr;
     }
+
+//    void add(int index, int element) {
+//        regeneration();
+//
+//        int[] newArr = new int[this.size];
+//
+//        for (int i = 0, j = 0; i < this.index; j++) {
+//            if (j == index) {
+//                newArr[j] = element;
+//            }
+//            else {
+//                newArr[j] = this.arr[i];
+//                i++;
+//            }
+//
+//        }
+//            this.index++;
+//            this.arr = newArr;
+//    }
 
     public void regeneration() {
         if (index==size) {
@@ -85,7 +100,7 @@ public class Main {
         arr.add(3);
         arr.add(8);
 
-        arr.add(2,5);
+        arr.addStart(2);
 
 
         arr.print();
